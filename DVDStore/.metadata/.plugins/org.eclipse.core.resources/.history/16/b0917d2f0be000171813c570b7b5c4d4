@@ -1,0 +1,57 @@
+package common;
+
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
+public class DVDService {
+	
+/*	private JdbcTemplate jdbcTemplate;
+	
+	public DVDService(DataSource dataSource){
+		 jdbcTemplate = new JdbcTemplate(dataSource);
+}
+	
+	
+	public List<DVD> getAll(){
+		String sql = "SELECT * From DVD";
+		List<DVD> dvds = jdbcTemplate.query(sql, new RowMapper<DVD>() {
+			
+			@Override
+			public DVD mapRow(ResultSet rs, int rowNum) throws SQLException {
+				DVD dvd= new DVD();
+				dvd.setTitle(rs.getString("title"));
+				dvd.setYear(rs.getInt("year"));
+				dvd.setPrice(rs.getDouble("price"));
+				
+				return dvd;
+			}
+			
+		});		
+		return dvds;
+	}
+*/
+	
+	public void createDVD(DVD dvd) throws FileNotFoundException, UnsupportedEncodingException{
+
+		// create a text file with info
+		
+		
+		PrintWriter writer = new PrintWriter("DVD.txt", "UTF-8");
+		writer.println(dvd.toString());
+		writer.println("\n");
+		writer.close();
+		
+		//send e-mail
+		
+	
+	}
+}

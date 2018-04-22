@@ -1,0 +1,35 @@
+package assig3.carina.producer;
+
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.List;
+import java.util.concurrent.TimeoutException;
+
+import org.apache.commons.lang.SerializationUtils;
+
+import common.DVD;
+import common.DVDService;
+import common.EndPoint;
+
+/**
+ * Hello world!
+ *
+ */
+public class Producer extends EndPoint
+{	
+	
+	privare DVDService dvdS;
+	
+	public Producer(String endPointName, DVD newDvd) throws IOException, TimeoutException{
+		super(endPointName);
+		DVDService.createDVD(newDvd);
+		
+	}
+
+	public void sendMessage(Serializable object) throws IOException {
+		
+	    channel.basicPublish("",endPointName, null, SerializationUtils.serialize(object));
+	
+	}	
+	
+}

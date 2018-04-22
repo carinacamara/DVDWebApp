@@ -1,0 +1,12 @@
+package assig3.carina.producer;
+
+import common.EndPoint;
+
+/**
+ * Hello world!
+ *
+ */
+public class App extends EndPoint
+{
+   
+}

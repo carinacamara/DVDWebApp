@@ -1,0 +1,36 @@
+package common;
+
+
+import common.DVDService;
+
+@Configuration
+@ComponentScan("common") 
+public class Config extends WebMvcConfigurerAdapter {
+
+
+	@Bean(name = "dataSource")
+	public DataSource getDataSource() {
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/DVD");
+		dataSource.setUsername("root");
+		dataSource.setPassword("root");
+		
+		return dataSource;
+	}
+    
+	
+    @Bean(name = "viewResolver")
+    public InternalResourceViewResolver getViewResolver() {
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        viewResolver.setPrefix("/WEB-INF/lib/");
+        viewResolver.setSuffix(".jsp");
+        return viewResolver;
+    }
+    
+    @Bean
+    public DVDService getDVDService(){
+    	return new DVDService(getDataSource());
+    }
+	
+}

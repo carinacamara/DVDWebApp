@@ -1,0 +1,63 @@
+package assig3.carina.producer;
+
+import java.io.IOException;
+import java.io.Serializable;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.TimeoutException;
+
+import org.apache.commons.lang.SerializationUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import common.DVD;
+import common.DVDService;
+import common.EndPoint;
+
+/**
+ * Hello world!
+ *
+ */
+public class Producer extends EndPoint
+{	
+
+	
+	public Producer(String endPointName, DVD DVD) throws IOException, TimeoutException{
+		super(endPointName);
+
+		
+		
+	}
+
+	public void sendMessage(Serializable object) throws IOException {
+		
+	    channel.basicPublish("",endPointName, null, SerializationUtils.serialize(object));
+	
+	}	
+	
+	public boolean getDVD(DVD dvd){
+		boolean gotIt = false;
+		
+		List<String> lines = Arrays.asList(dvd.toString(), "\n");
+		Path file = Paths.get("DVD.txt");
+		try {
+			Files.write(file, lines, Charset.forName("UTF-8"));
+			gotIt = true;
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		return gotIt;
+		
+	}
+	
+	
+	
+}

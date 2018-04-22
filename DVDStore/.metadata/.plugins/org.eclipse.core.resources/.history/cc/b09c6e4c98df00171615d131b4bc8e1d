@@ -1,0 +1,22 @@
+package assig3.carina.client;
+
+import javax.servlet.ServletContext;
+
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+
+public class SpringWebAppInitializer implements WebApplicationInitializer {
+
+	@Override
+	public void onStartup(ServletContext servletContext) throws ServletException {
+        AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
+        appContext.register(Config.class);
+        
+        ServletRegistration.Dynamic dispatcher = servletContext.addServlet(
+                "SpringDispatcher", new DispatcherServlet(appContext));
+        dispatcher.setLoadOnStartup(1);
+        dispatcher.addMapping("/");
+        
+	}
+
+}

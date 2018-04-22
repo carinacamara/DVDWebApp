@@ -1,0 +1,44 @@
+package assig3.carina.client;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.concurrent.TimeoutException;
+
+import assig3.carina.consumer.QueueConsumer;
+import assig3.carina.producer.Producer;
+import common.DVD;
+
+public class App {
+	
+	
+	public App() throws IOException, TimeoutException{
+	QueueConsumer consumer = new QueueConsumer("queue");
+	Thread consumerThread = new Thread(consumer);
+	consumerThread.start();
+	
+	DVD dvd = new DVD();
+	Producer producer = new Producer("queue",dvd);
+
+		HashMap message = new HashMap<String,Integer>();
+		
+		
+		// create dvd with paramsffrom web
+		
+		// trebuie sa modificam proiectul la unul web
+		
+		// clasa asta este controller ul care primeste dvd de la interfata
+		
+		message.put(dvd.toString(), 9);
+		
+		producer.sendMessage(message);
+		
+		System.out.println("Message Number s sent.");
+	
+	
+	}
+	
+	public static void main(String[] args) throws Exception{
+		  new App();
+		}
+
+}

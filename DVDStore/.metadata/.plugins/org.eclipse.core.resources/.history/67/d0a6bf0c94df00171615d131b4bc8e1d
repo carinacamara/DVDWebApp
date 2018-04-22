@@ -1,0 +1,8 @@
+package assig3.carina.client;
+
+
+
+@Controller
+public class Controller {
+
+}

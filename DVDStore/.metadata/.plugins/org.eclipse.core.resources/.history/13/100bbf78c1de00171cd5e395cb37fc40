@@ -1,0 +1,12 @@
+package common;
+
+public class DVD {
+	
+	
+	private String title;
+	private int year;
+	private double price;
+	
+	
+
+}

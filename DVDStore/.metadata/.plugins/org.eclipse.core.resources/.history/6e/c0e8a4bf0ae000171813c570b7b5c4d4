@@ -1,0 +1,60 @@
+package common;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
+public class DVDService {
+	
+/*	private JdbcTemplate jdbcTemplate;
+	
+	public DVDService(DataSource dataSource){
+		 jdbcTemplate = new JdbcTemplate(dataSource);
+}
+	
+	
+	public List<DVD> getAll(){
+		String sql = "SELECT * From DVD";
+		List<DVD> dvds = jdbcTemplate.query(sql, new RowMapper<DVD>() {
+			
+			@Override
+			public DVD mapRow(ResultSet rs, int rowNum) throws SQLException {
+				DVD dvd= new DVD();
+				dvd.setTitle(rs.getString("title"));
+				dvd.setYear(rs.getInt("year"));
+				dvd.setPrice(rs.getDouble("price"));
+				
+				return dvd;
+			}
+			
+		});		
+		return dvds;
+	}
+*/
+	
+	public void createDVD(DVD dvd){
+	/*	if (dvd.getId() > 0) {
+			// update
+			String sql = "UPDATE DVD SET title=?, year=?, price=? WHERE id=?";
+			jdbcTemplate.update(sql, dvd.getTitle(),
+					dvd.getYear(), dvd.getPrice(), dvd.getId());
+		} else {
+			// insert
+			String sql = "INSERT INTO DVD (title, year, price)"
+						+ " VALUES (?, ?, ?)";
+			jdbcTemplate.update(sql, dvd.getTitle(), dvd.getYear(),
+					dvd.getPrice());
+			}
+	
+	*/
+		// create a text file with info
+		
+		//send e-mail
+	
+	}
+}

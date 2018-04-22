@@ -1,0 +1,9 @@
+package assig3.carina.consumer;
+
+import com.rabbitmq.client.Consumer;
+
+import common.EndPoint;
+
+public class QueueConsumer extends EndPoint implements Runnable, Consumer{
+
+}

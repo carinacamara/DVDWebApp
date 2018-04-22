@@ -1,0 +1,24 @@
+package common;
+
+import java.awt.List;
+import java.util.ArrayList;
+
+public class DVDDao {
+	
+	
+	
+	public DVD createDVD(String title, int year, double price){
+		//add dvd to database
+		DVD dvd = new DVD();
+		
+		return dvd;
+	}
+
+	
+	public ArrayList getAll(){
+		ArrayList<DVD> dvds = new ArrayList<DVD>();
+		
+		
+		return dvds;
+	}
+}

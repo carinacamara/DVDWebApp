@@ -1,0 +1,23 @@
+package common;
+
+
+
+public class DVDDao {
+	
+	
+	
+	public DVD createDVD(String title, int year, double price){
+		//add dvd to database
+		DVD dvd = new DVD();
+		
+		return dvd;
+	}
+
+	
+	//public List getAll(){
+		//ArrayList<DVD> dvds = new List();
+		
+		
+	//	return dvds;
+	//}
+}

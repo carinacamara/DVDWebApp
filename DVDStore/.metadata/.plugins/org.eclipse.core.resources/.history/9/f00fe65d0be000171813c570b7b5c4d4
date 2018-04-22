@@ -1,0 +1,23 @@
+package common;
+
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+
+public class DVDService {
+	
+	public void createDVD(DVD dvd) throws FileNotFoundException, UnsupportedEncodingException{
+
+		// create a text file with info
+		
+		
+		PrintWriter writer = new PrintWriter("DVD.txt", "UTF-8");
+		writer.println(dvd.toString());
+		writer.println("\n");
+		writer.close();
+		
+		//send e-mail
+		
+	
+	}
+}

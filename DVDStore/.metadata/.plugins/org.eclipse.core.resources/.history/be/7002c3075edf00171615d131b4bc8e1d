@@ -1,0 +1,30 @@
+package common;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
+public class DVDService {
+	
+	private JdbcTemplate jdbcTemplate;
+	
+	public DVDService(DataSource dataSource){
+		 jdbcTemplate = new JdbcTemplate(dataSource);
+}
+	
+	
+	public DVD createDVD(String title, int year, double price){
+		//add dvd to database
+		DVD dvd = new DVD();
+		
+		return dvd;
+	}
+
+	
+	//public List getAll(){
+		//ArrayList<DVD> dvds = new List();
+		
+		
+	//	return dvds;
+	//}
+}
